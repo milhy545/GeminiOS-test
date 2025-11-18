@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeminiOS - AI Generated Lite OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Screen / API Setup -->
+    <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-content">
+            <h1>🤖 GeminiOS</h1>
+            <p class="subtitle">AI-Generated Lite Operating System</p>
+            <p class="description">Zadejte API klíč a nechte AI generovat váš operační systém!</p>
+
+            <div class="api-setup">
+                <div class="api-option">
+                    <label>
+                        <input type="radio" name="ai-provider" value="gemini" checked>
+                        <span class="provider-label">
+                            <strong>Google Gemini</strong>
+                            <small>Gemini 2.0 Flash</small>
+                        </span>
+                    </label>
+                    <input type="text" id="gemini-key" class="api-input" placeholder="Zadejte Gemini API klíč">
+                </div>
+
+                <div class="api-option">
+                    <label>
+                        <input type="radio" name="ai-provider" value="claude">
+                        <span class="provider-label">
+                            <strong>Anthropic Claude</strong>
+                            <small>Claude Sonnet</small>
+                        </span>
+                    </label>
+                    <input type="text" id="claude-key" class="api-input" placeholder="Zadejte Claude API klíč">
+                </div>
+
+                <div class="api-option">
+                    <label>
+                        <input type="radio" name="ai-provider" value="openai">
+                        <span class="provider-label">
+                            <strong>OpenAI</strong>
+                            <small>GPT-4</small>
+                        </span>
+                    </label>
+                    <input type="text" id="openai-key" class="api-input" placeholder="Zadejte OpenAI API klíč">
+                </div>
+            </div>
+
+            <button id="start-os" class="start-button">Spustit OS</button>
+            <p class="hint">💡 API klíče jsou uloženy pouze ve vašem prohlížeči</p>
+        </div>
+    </div>
+
+    <!-- Desktop -->
+    <div id="desktop" class="desktop hidden">
+        <!-- Wallpaper -->
+        <div class="wallpaper"></div>
+
+        <!-- Desktop Icons -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" data-app="ai-launcher">
+                <div class="icon">🚀</div>
+                <div class="icon-label">AI Launcher</div>
+            </div>
+            <div class="desktop-icon" data-app="settings">
+                <div class="icon">⚙️</div>
+                <div class="icon-label">Nastavení</div>
+            </div>
+            <div class="desktop-icon" data-app="terminal">
+                <div class="icon">💻</div>
+                <div class="icon-label">AI Terminal</div>
+            </div>
+            <div class="desktop-icon" data-app="browser">
+                <div class="icon">🌐</div>
+                <div class="icon-label">AI Browser</div>
+            </div>
+        </div>
+
+        <!-- Windows Container -->
+        <div id="windows-container" class="windows-container"></div>
+
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <div class="start-menu-btn">
+                <span class="os-logo">🤖</span>
+                <span>GeminiOS</span>
+            </div>
+            <div class="taskbar-apps" id="taskbar-apps"></div>
+            <div class="system-tray">
+                <div class="tray-item" id="ai-status">
+                    <span class="status-indicator active"></span>
+                    <span id="ai-provider-name">AI Ready</span>
+                </div>
+                <div class="tray-item clock" id="clock">00:00</div>
+            </div>
+        </div>
+
+        <!-- Start Menu -->
+        <div class="start-menu hidden" id="start-menu">
+            <div class="start-menu-header">
+                <h3>🤖 GeminiOS</h3>
+                <p>AI-Powered OS</p>
+            </div>
+            <div class="start-menu-search">
+                <input type="text" id="ai-prompt" placeholder="Řekněte AI, co chcete vytvořit..." />
+                <button id="generate-app">Generovat</button>
+            </div>
+            <div class="start-menu-apps">
+                <div class="menu-section">
+                    <h4>Výchozí aplikace</h4>
+                    <div class="menu-item" data-app="ai-launcher">🚀 AI Launcher</div>
+                    <div class="menu-item" data-app="settings">⚙️ Nastavení</div>
+                    <div class="menu-item" data-app="terminal">💻 AI Terminal</div>
+                    <div class="menu-item" data-app="browser">🌐 AI Browser</div>
+                </div>
+                <div class="menu-section">
+                    <h4>AI Generované aplikace</h4>
+                    <div id="generated-apps-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p id="loading-text">AI generuje...</p>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="ai-engine.js"></script>
+    <script src="window-manager.js"></script>
+    <script src="apps.js"></script>
+    <script src="os.js"></script>
+</body>
+</html>
