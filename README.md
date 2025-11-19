@@ -37,6 +37,12 @@ ClaudeOS je postaven na čtyřech pilířích Constitutional AI:
 
 ## ✨ Unikátní funkce
 
+### 🎤 **Hlasové ovládání (Speech-to-Text)**
+Diktuj místo psaní! Stiskni `Ctrl+Shift+V` a mluv - ClaudeOS tě poslouchá
+
+### 🔊 **Text-to-Speech**
+Nech si přečíst odpovědi nahlas! Klikni na 🔊 a odpočívej oči i ruce
+
 ### 🧠 **Thinking Space**
 Vizualizace toho, jak AI přemýšlí - vidíte proces myšlení v reálném čase
 
@@ -176,6 +182,8 @@ nebo `Ctrl+Shift+D`
 | Zaměření | Generování | **Constitutional AI** |
 | Design | Modrý/Fialový | **Anthropic Orange** |
 | Priorita | Rychlost | **Bezpečnost & Etika** |
+| Voice STT | ❌ | **✅ Diktování (Ctrl+Shift+V)** |
+| Voice TTS | ❌ | **✅ Přehrání odpovědí** |
 | Thinking Mode | ❌ | **✅ Vizualizace** |
 | Ethical Check | ❌ | **✅ Zabudováno** |
 | Constitution | ❌ | **✅ 4 principy** |
