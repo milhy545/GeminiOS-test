@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeminiOS - Test Suite</title>
+    <title>ClaudeOS - Test Suite</title>
     <style>
         * {
             margin: 0;
@@ -218,7 +218,7 @@
     <div class="test-container">
         <h1>
             <span>🧪</span>
-            <span>GeminiOS Test Suite</span>
+            <span>ClaudeOS Test Suite</span>
         </h1>
         <p class="subtitle">Kompletní testování všech funkcí OS bez nutnosti API klíčů</p>
 
@@ -349,7 +349,7 @@
         <div class="test-section">
             <h2>🐛 Debug Console</h2>
             <div class="debug-console" id="debug-console">
-                <div class="debug-line">[INFO] GeminiOS Test Suite inicializován</div>
+                <div class="debug-line">[INFO] ClaudeOS Test Suite inicializován</div>
                 <div class="debug-line">[INFO] Připraven k testování všech funkcí</div>
             </div>
         </div>
@@ -357,7 +357,7 @@
 
     <!-- Open OS Button -->
     <button class="open-os-button" onclick="window.open('index.html', '_blank')">
-        🚀 Otevřít GeminiOS
+        🚀 Otevřít ClaudeOS
     </button>
 
     <!-- Load OS Scripts -->
@@ -491,7 +491,7 @@
         function testLocalStorage() {
             debug('Testing LocalStorage...');
             try {
-                const testKey = 'geminiOS_test_' + Date.now();
+                const testKey = 'claudeOS_test_' + Date.now();
                 const testValue = { test: true, timestamp: Date.now() };
 
                 localStorage.setItem(testKey, JSON.stringify(testValue));
@@ -739,7 +739,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `geminiOS-test-results-${Date.now()}.json`;
+            a.download = `claudeOS-test-results-${Date.now()}.json`;
             a.click();
 
             log('✓ Výsledky exportovány', 'pass');

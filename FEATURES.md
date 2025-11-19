@@ -1,4 +1,4 @@
-# 🌟 GeminiOS - Kompletní seznam funkcí
+# 🌟 ClaudeOS - Kompletní seznam funkcí
 
 ## 🎨 Core Features
 
@@ -154,7 +154,7 @@
 
 ## 📊 Statistiky
 
-### Co GeminiOS umí vygenerovat
+### Co ClaudeOS umí vygenerovat
 - Kalkulačky
 - To-do listy
 - Hry (piškvorky, had, memory)
@@ -203,7 +203,7 @@
 - ✅ String manipulations
 - ✅ Canvas graphics
 
-## 🏆 Výhody GeminiOS
+## 🏆 Výhody ClaudeOS
 
 ### Vs tradiční vývoj
 - ⚡ Okamžité prototypování
@@ -221,4 +221,4 @@
 
 ---
 
-**GeminiOS je více než jen OS - je to kreativní playground pro AI experimentování! 🚀**
+**ClaudeOS je více než jen OS - je to kreativní playground pro AI experimentování! 🚀**

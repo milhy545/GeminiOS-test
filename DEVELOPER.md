@@ -1,6 +1,6 @@
-# 🛠️ GeminiOS - Developer Documentation
+# 🛠️ ClaudeOS - Developer Documentation
 
-Komplexní vývojářská dokumentace pro práci s GeminiOS kódem.
+Komplexní vývojářská dokumentace pro práci s ClaudeOS kódem.
 
 ---
 
@@ -21,7 +21,7 @@ Komplexní vývojářská dokumentace pro práci s GeminiOS kódem.
 ### Struktura souborů
 
 ```
-GeminiOS-test/
+ClaudeOS-test/
 │
 ├── index.html              # Hlavní HTML struktura
 ├── style.css               # Veškerý styling
@@ -67,7 +67,7 @@ GeminiOS-test/
 ```
 ┌─────────────────────────────────────────┐
 │              os.js (Main)                │
-│         GeminiOS Controller              │
+│         ClaudeOS Controller              │
 └────────────┬────────────────────────────┘
              │
     ┌────────┼────────┬──────────┐
@@ -298,15 +298,15 @@ apps.launchGeneratedApp(appId)
 
 ---
 
-### GeminiOS (os.js)
+### ClaudeOS (os.js)
 
-#### Class: `GeminiOS`
+#### Class: `ClaudeOS`
 
 Hlavní řídící třída OS.
 
 **Constructor:**
 ```javascript
-const os = new GeminiOS();
+const os = new ClaudeOS();
 ```
 
 **Methods:**
@@ -329,7 +329,7 @@ os.updateAIStatus()              // Aktualizovat AI status
 
 ### Debug (debug.js)
 
-#### Class: `GeminiOSDebug`
+#### Class: `ClaudeOSDebug`
 
 Debug modul pro vývojáře.
 
@@ -337,26 +337,26 @@ Debug modul pro vývojáře.
 
 ```javascript
 // Ovládání
-GeminiOSDebug.enable()           // Zapnout debug mód
-GeminiOSDebug.disable()          // Vypnout debug mód
+ClaudeOSDebug.enable()           // Zapnout debug mód
+ClaudeOSDebug.disable()          // Vypnout debug mód
 
 // Logging
-GeminiOSDebug.log(message, type, data)
-GeminiOSDebug.logWindow(action, windowId, data)
-GeminiOSDebug.logAI(message, data)
-GeminiOSDebug.logAPI(message, data)
-GeminiOSDebug.logPerf(message, duration)
-GeminiOSDebug.logError(message, error)
+ClaudeOSDebug.log(message, type, data)
+ClaudeOSDebug.logWindow(action, windowId, data)
+ClaudeOSDebug.logAI(message, data)
+ClaudeOSDebug.logAPI(message, data)
+ClaudeOSDebug.logPerf(message, duration)
+ClaudeOSDebug.logError(message, error)
 
 // Utility
-GeminiOSDebug.clearLogs()        // Vymazat logy
-GeminiOSDebug.exportLogs()       // Exportovat logy
-GeminiOSDebug.togglePanel()      // Skrýt/zobrazit panel
+ClaudeOSDebug.clearLogs()        // Vymazat logy
+ClaudeOSDebug.exportLogs()       // Exportovat logy
+ClaudeOSDebug.togglePanel()      // Skrýt/zobrazit panel
 ```
 
 **Aktivace:**
 - URL: `index.html?debug=true`
-- Console: `GeminiOSDebug.enable()`
+- Console: `ClaudeOSDebug.enable()`
 - Keyboard: `Ctrl+Shift+D`
 
 ---
@@ -566,7 +566,7 @@ index.html?debug=true
 
 **Console:**
 ```javascript
-GeminiOSDebug.enable()
+ClaudeOSDebug.enable()
 ```
 
 **Keyboard:**
@@ -579,13 +579,13 @@ Ctrl + Shift + D
 ```javascript
 // V jakémkoliv souboru
 
-GeminiOSDebug.log('Základní log', 'log');
-GeminiOSDebug.log('Info zpráva', 'info');
-GeminiOSDebug.log('Varování', 'warn');
-GeminiOSDebug.logError('Chyba', error);
-GeminiOSDebug.logWindow('created', windowId);
-GeminiOSDebug.logAI('AI response', data);
-GeminiOSDebug.logPerf('Operation', duration);
+ClaudeOSDebug.log('Základní log', 'log');
+ClaudeOSDebug.log('Info zpráva', 'info');
+ClaudeOSDebug.log('Varování', 'warn');
+ClaudeOSDebug.logError('Chyba', error);
+ClaudeOSDebug.logWindow('created', windowId);
+ClaudeOSDebug.logAI('AI response', data);
+ClaudeOSDebug.logPerf('Operation', duration);
 ```
 
 ### Testování
@@ -634,7 +634,7 @@ try {
     // Success handling
 } catch (error) {
     console.error('AI Error:', error);
-    GeminiOSDebug.logError('AI generation failed', error);
+    ClaudeOSDebug.logError('AI generation failed', error);
     // User-friendly error message
     alert(`Chyba: ${error.message}`);
 }
@@ -779,7 +779,7 @@ await someOperation();
 const end = performance.now();
 const duration = end - start;
 
-GeminiOSDebug.logPerf('Operation completed', Math.round(duration));
+ClaudeOSDebug.logPerf('Operation completed', Math.round(duration));
 ```
 
 ### Memory monitoring

@@ -1,4 +1,4 @@
-# 🚀 GeminiOS - Quick Start Demo
+# 🚀 ClaudeOS - Quick Start Demo
 
 ## Okamžité spuštění
 
@@ -119,7 +119,7 @@
 
 ## 📱 Mobile support
 
-GeminiOS funguje i na mobilních zařízeních, ale nejlepší zážitek je na desktopu s myší.
+ClaudeOS funguje i na mobilních zařízeních, ale nejlepší zážitek je na desktopu s myší.
 
 ## 🚀 Co dál?
 
