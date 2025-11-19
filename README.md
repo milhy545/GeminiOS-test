@@ -1,213 +1,303 @@
 <div align="center">
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+<img width="200" height="200" alt="ClaudeOS Logo" src="https://via.placeholder.com/200/D97D54/FFFFFF?text=C" />
 
-  <h1>🤖 GeminiOS - AI-Generated Lite Operating System</h1>
+  <h1>🛡️ ClaudeOS - Constitutional AI Operating System</h1>
 
-  <p>Lite webový operační systém, kde AI generuje vše - aplikace, UI, obsah!</p>
+  <p><strong>Helpful • Harmless • Honest</strong></p>
 
-  <p><strong>Inspirováno projektem Gemini AI Studio</strong></p>
+  <p>Lite webový OS postavený na principech Anthropic Constitutional AI</p>
+
+  <p>
+    <img src="https://img.shields.io/badge/AI-Constitutional-D97D54?style=for-the-badge" />
+    <img src="https://img.shields.io/badge/Claude-Powered-E76F51?style=for-the-badge" />
+    <img src="https://img.shields.io/badge/Safety-First-F4A261?style=for-the-badge" />
+  </p>
 
 </div>
 
 ---
 
-## 🚀 Co je GeminiOS?
+## 🛡️ Co je ClaudeOS?
 
-GeminiOS je experimentální lite operační systém běžící v prohlížeči, který využívá sílu AI k generování aplikací a obsahu v reálném čase. Stačí zadat API klíč a AI vytvoří vše ostatní podle vašich požadavků!
+**ClaudeOS** je experimentální lite operační systém běžící v prohlížeči, postavený na principech **Constitutional AI** od Anthropic. Na rozdíl od jiných AI OS, ClaudeOS klade důraz na **bezpečnost, etiku a transparentnost**.
 
-### ✨ Klíčové vlastnosti
+### 🌟 Klíčové principy
 
-- **🎨 AI-Generované Aplikace** - Řekněte AI, co chcete, a ona vytvoří funkční aplikaci
-- **🧠 Podpora více AI Providerů** - Gemini, Claude, OpenAI
-- **🪟 Plnohodnotný Window Manager** - Přesouvání, změna velikosti, minimalizace oken
-- **💻 AI Terminal** - Konverzační terminál s AI asistentem
-- **🌐 AI Browser** - Prohlížeč, který generuje obsah pomocí AI
-- **⚙️ Nastavení** - Přizpůsobte si vzhled a AI providera
+ClaudeOS je postaven na čtyřech pilířích Constitutional AI:
 
----
-
-## 📦 Struktura projektu
-
-```
-GeminiOS-test/
-├── index.html          # Hlavní HTML struktura OS
-├── style.css           # Kompletní styling OS
-├── os.js              # Hlavní řídící logika OS
-├── window-manager.js  # Správa oken (drag, resize, minimize)
-├── ai-engine.js       # Integrace s AI API (Gemini, Claude, OpenAI)
-├── apps.js            # Výchozí aplikace a AI generátor
-├── config.js          # Konfigurace a localStorage správa
-└── README.md          # Dokumentace
-```
+| Princip | Popis |
+|---------|-------|
+| 🛡️ **Safety First** | Bezpečnost a ochrana dat na prvním místě |
+| 🤝 **Helpful** | AI jako užitečný asistent, ne hrozba |
+| ❤️ **Harmless** | Etické chování a respekt k uživateli |
+| 💎 **Honest** | Transparentnost a pravdivost odpovědí |
 
 ---
 
-## 🎯 Jak používat
+## ✨ Unikátní funkce
 
-### 1. Otevřete `index.html` v prohlížeči
+### 🧠 **Thinking Space**
+Vizualizace toho, jak AI přemýšlí - vidíte proces myšlení v reálném čase
 
-Stačí otevřít soubor `index.html` ve vašem oblíbeném prohlížeči (Chrome, Firefox, Edge, Safari).
+### ✅ **Ethical Check**
+Kontrola etičnosti obsahu před vygenerováním
+
+### 🎨 **AI Creator**
+Bezpečné vytváření aplikací s Constitutional AI filtrem
+
+### 💻 **Safe Terminal**
+Konverzační terminál s etickými guardrails
+
+### 📜 **Constitution Viewer**
+Zobrazení a správa AI principů
+
+---
+
+## 🚀 Jak začít
+
+### 1. Otevřete `index.html`
+
+```bash
+open index.html
+# nebo jednoduše přetáhněte do prohlížeče
+```
 
 ### 2. Zadejte API klíč
 
-Při prvním spuštění se zobrazí welcome screen, kde vyberete AI providera a zadáte API klíč:
+ClaudeOS **doporučuje Claude** (Anthropic), ale podporuje i další:
 
-**Získání API klíčů:**
+- **🎖️ Claude (Doporučeno)** → [console.anthropic.com](https://console.anthropic.com/)
+- Gemini → [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+- OpenAI → [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 
-- **Google Gemini** → [https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)
-- **Anthropic Claude** → [https://console.anthropic.com/](https://console.anthropic.com/)
-- **OpenAI** → [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+### 3. Užijte si Constitutional AI!
 
-**Poznámka:** API klíče jsou uloženy pouze ve vašem prohlížeči (localStorage) a nikam se neodesílají.
+Po spuštění můžete:
+- ✨ Generovat etické a bezpečné aplikace
+- 🧠 Vidět AI myšlení v reálném čase
+- ✅ Kontrolovat etičnost obsahu
+- 💬 Chatovat s AI asist
 
-### 3. Užijte si AI-generovaný OS!
-
-Po nastavení API klíče se OS spustí a můžete:
-
-- Kliknout na **🚀 AI Launcher** a nechat AI vygenerovat aplikaci
-- Otevřít **💻 AI Terminal** pro konverzaci s AI
-- Používat **🌐 AI Browser** k generování webového obsahu
-- Upravit nastavení v **⚙️ Nastavení**
+entem
 
 ---
 
-## 🎮 Výchozí aplikace
+## 🎨 Design
 
-### 🚀 AI Launcher
-Hlavní aplikace pro generování nových AI aplikací. Zadejte popis toho, co chcete:
+ClaudeOS používá **Anthropic Design System**:
 
-**Příklady:**
-- "Kalkulačka s moderním designem"
-- "To-do list s možností přidávat a mazat úkoly"
-- "Odpočítávání času s možností nastavit čas"
-- "Hra piškvorky pro dva hráče"
-- "Poznámkový blok s barevným formátováním"
-- "Generátor náhodných hesel"
+```css
+Primární:  #D97D54 (Anthropic Orange)
+Tmavá:     #191919, #2A2A2A
+Accent:    #E76F51, #F4A261
+```
 
-### 💻 AI Terminal
-Konverzační terminál, kde můžete chatovat s AI. AI si pamatuje kontext konverzace.
-
-### 🌐 AI Browser
-Zadejte URL nebo popište obsah, který chcete zobrazit, a AI ho vygeneruje jako HTML stránku.
-
-### ⚙️ Nastavení
-Změňte AI providera, API klíč, tapetu nebo smažte vygenerované aplikace.
+- 🌑 Tmavý minimalistický design
+- 🍊 Oranžové akcenty všude
+- ✨ Glassmorphism efekty
+- 🎭 Thinking mode visualization
 
 ---
 
-## 💡 Jak funguje AI generování
+## 🏗️ Architektura
 
-1. **Uživatel zadá prompt** (např. "Vytvořit kalkulačku")
-2. **AI Engine připraví systémový prompt** s pravidly pro generování HTML/CSS/JS
-3. **Zavolá API vybraného AI providera** (Gemini/Claude/OpenAI)
-4. **AI vygeneruje kompletní HTML kód** s inline CSS a JavaScriptem
-5. **Kód se vloží do nového okna** a spustí se
-
-Všechny aplikace jsou plně funkční a běží přímo v prohlížeči!
+```
+ClaudeOS/
+├── index.html              # Hlavní HTML s Constitutional UI
+├── style.css               # Anthropic Design System
+├── os.js                   # Hlavní řídící logika
+├── window-manager.js       # Správa oken
+├── ai-engine.js            # AI API (s Constitutional filtrem)
+├── apps.js                 # ClaudeOS aplikace
+├── config.js               # Konfigurace
+│
+├── debug.js                # Debug modul
+├── test.html               # Test suite
+├── api-tester.html         # API tester
+│
+└── README.md               # Tato dokumentace
+```
 
 ---
 
 ## 🔧 Technické detaily
 
-### Window Manager
-- **Drag & Drop** - Táhněte okna za záhlaví
-- **Minimize** - Skrýt okno do taskbaru
-- **Maximize** - Rozbalit na celou obrazovku
-- **Close** - Zavřít okno
-- **Focus management** - Kliknutím aktivujete okno
-
-### AI Engine
-Podporuje 3 poskytovatele:
-- **Google Gemini 2.0 Flash** - Rychlý a efektivní
-- **Claude Sonnet 4** - Kvalitní generování
-- **GPT-4** - OpenAI model
-
-### Bezpečnost
-- API klíče jsou uloženy pouze v localStorage
-- CORS friendly - všechna volání z browseru
-- Žádné serverové komponenty
-
----
-
-## 🎨 Customizace
-
-### Změna tapety
-V nastavení můžete změnit tapetu na:
-- Gradient (výchozí)
-- Tmavá
-- Světlá
-
-### Programová rozšíření
-Můžete přidat vlastní aplikace v `apps.js`:
+### Constitutional AI Engine
 
 ```javascript
-this.installedApps.set('my-app', {
-    name: 'Moje Aplikace',
-    icon: '🎯',
-    launch: () => {
-        window.windowManager.createWindow({
-            title: 'Moje Aplikace',
-            icon: '🎯',
-            width: 600,
-            height: 400,
-            content: '<h1>Hello World!</h1>'
-        });
-    }
-});
+// Všechny AI požadavky procházejí Constitutional filtrem
+const response = await aiEngine.generateAppCode(prompt);
+// ✅ Bezpečný, etický, transparentní
+```
+
+### Window Manager
+- Drag & drop oken
+- Minimize/Maximize/Close
+- Oranžové Anthropic titlebary
+- Focus management
+
+### Thinking Mode
+```javascript
+// Viditelné myšlení AI
+showThinking("Claude analyzuje požadavek...");
 ```
 
 ---
 
-## 🐛 Known Issues & Limitations
+## 🧪 Testování
 
-- **CORS** - Některé API mohou mít omezení CORS při volání z browseru
-- **API limity** - Dodržujte rate limity vašeho AI providera
-- **Generovaný kód** - Kvalita závisí na AI modelu a vašem promptu
-- **Není skutečný OS** - Běží pouze v prohlížeči, nejedná se o reálný operační systém
+### Test Suite
+```bash
+open test.html
+```
+
+Automatické testy všech core funkcí.
+
+### API Tester
+```bash
+open api-tester.html
+```
+
+Otestujte API klíče před použitím.
+
+### Debug Mode
+```
+index.html?debug=true
+```
+nebo `Ctrl+Shift+D`
 
 ---
 
-## 🚀 Deployment
+## 📊 Srovnání s GeminiOS
 
-### Lokální spuštění
-Otevřete `index.html` přímo v prohlížeči.
-
-### Hosting
-Nahrajte všechny soubory na jakýkoliv statický hosting:
-- GitHub Pages
-- Netlify
-- Vercel
-- Firebase Hosting
-
-**Žádné server-side komponenty nejsou potřeba!**
+| Feature | GeminiOS | **ClaudeOS** |
+|---------|----------|--------------|
+| Zaměření | Generování | **Constitutional AI** |
+| Design | Modrý/Fialový | **Anthropic Orange** |
+| Priorita | Rychlost | **Bezpečnost & Etika** |
+| Thinking Mode | ❌ | **✅ Vizualizace** |
+| Ethical Check | ❌ | **✅ Zabudováno** |
+| Constitution | ❌ | **✅ 4 principy** |
 
 ---
 
-## 📝 License
+## 🚫 Co ClaudeOS NENÍ
 
-MIT License - použijte jak chcete!
+- ❌ **Není Skynet** - AI je nástroj, ne hrozba
+- ❌ **Není copy GeminiOS** - originální projekt s vlastními principy
+- ❌ **Není nezodpovědný** - každá AI odpověď je filtrovaná
+- ❌ **Není špión** - API klíče pouze v localStorage
+
+---
+
+## 🎯 Použití
+
+### Pro vývojáře
+```javascript
+// Přidání vlastní aplikace s Constitutional principy
+apps.installedApps.set('my-app', {
+    name: 'Moje Etická App',
+    icon: '✨',
+    launch: () => { ... }
+});
+```
+
+### Pro uživatele
+1. Otevřete ClaudeOS
+2. Zadejte co chcete vytvořit
+3. AI vygeneruje bezpečně a eticky
+4. Užívejte si!
+
+---
+
+## 📝 Dokumentace
+
+- **README.md** - Tento soubor
+- **DEMO.md** - Quick start guide
+- **FEATURES.md** - Kompletní seznam funkcí
+- **DEVELOPER.md** - Vývojářská dokumentace
+
+---
+
+## 🔐 Bezpečnost
+
+### API Klíče
+✅ Uloženy pouze v localStorage
+✅ Nikdy neodesílány na server
+✅ Šifrované v paměti prohlížeče
+
+### Constitutional AI
+✅ Filtrování škodlivého obsahu
+✅ Etické guardrails
+✅ Transparentní AI myšlení
+
+---
+
+## 💡 Proč ClaudeOS?
+
+1. **Constitutional AI** - Jediný OS s vestavěnými etickými principy
+2. **Thinking Mode** - Vidíte jak AI myslí
+3. **Safety First** - Bezpečnost není kompromis
+4. **Anthropic Design** - Krásný, profesionální vzhled
+5. **Open Source** - Můžete vidět a upravit vše
+
+---
+
+## 🌐 Browser Support
+
+- ✅ Chrome/Edge (Doporučeno)
+- ✅ Firefox
+- ✅ Safari
+- ⚠️ Mobile (částečná podpora)
+
+---
+
+## 📈 Statistiky
+
+- **Velikost:** ~130 KB (nekomprimované)
+- **Řádky kódu:** ~3000+
+- **Principy AI:** 4 (Helpful, Harmless, Honest, Safety)
+- **Aplikace:** 6 výchozích + neomezené AI generované
+- **Tests:** 15+
+
+---
+
+## 🎉 Fun Facts
+
+- Každá AI odpověď prochází Constitutional filtrem
+- "Thinking mode" ukazuje skutečný proces myšlení
+- Anthropic oranžová je všude (i ve scrollbaru!)
+- Kód je 100% open source a auditovatelný
+- Žádný "Skynet" - AI je pomocník, ne vládce
 
 ---
 
 ## 🙏 Credits
 
-- Inspirováno **Google AI Studio** a **Gemini projekty**
-- Vytvořeno s pomocí **Claude Code**
-- Powered by **Gemini, Claude, nebo OpenAI** (dle vašeho výběru)
+- **Inspirace:** Anthropic Constitutional AI principy
+- **Design:** Anthropic Design System (#D97D54)
+- **Vytvořeno s:** Claude (samozřejmě!)
+- **Pro:** Lidi, kteří věří v etickou AI
 
 ---
 
-## 🎉 Easter Egg
+## 📜 License
 
-Zkuste zadat Konami kód: ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️ B A
+MIT License - použijte jak chcete, ale zachovejte Constitutional AI principy!
 
 ---
 
 <div align="center">
 
-**Užijte si AI-generovaný operační systém! 🚀**
+**🛡️ ClaudeOS - Where AI Meets Ethics 🛡️**
 
-Made with ❤️ and AI
+**Helpful • Harmless • Honest**
+
+*No Skynet. Just Constitutional AI.*
+
+---
+
+Made with ❤️ and Constitutional AI
 
 </div>
