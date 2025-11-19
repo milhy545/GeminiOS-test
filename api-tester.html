@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeminiOS - API Tester</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .provider-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .provider-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn.secondary {
+            background: #6b7280;
+        }
+
+        .btn.danger {
+            background: #ef4444;
+        }
+
+        .result-box {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .result-box.success {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            color: #065f46;
+        }
+
+        .result-box.error {
+            background: #fee2e2;
+            border: 2px solid #ef4444;
+            color: #991b1b;
+        }
+
+        .result-box.loading {
+            background: #dbeafe;
+            border: 2px solid #3b82f6;
+            color: #1e40af;
+        }
+
+        .result-content {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            padding: 20px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .quick-tests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .test-card {
+            padding: 15px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .test-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .test-card h3 {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .test-card p {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .tips {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        .tips h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tips ul {
+            color: #856404;
+            margin-left: 20px;
+        }
+
+        .tips li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <span>🔌</span>
+            <span>GeminiOS API Tester</span>
+        </h1>
+        <p class="subtitle">Otestujte vaše API klíče a AI providery před použitím v OS</p>
+
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <div class="stat-value" id="total-tests">0</div>
+                <div class="stat-label">Celkem testů</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="successful-tests">0</div>
+                <div class="stat-label">Úspěšné</div>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                <div class="stat-value" id="failed-tests">0</div>
+                <div class="stat-label">Neúspěšné</div>
+            </div>
+        </div>
+
+        <!-- Google Gemini -->
+        <div class="provider-section">
+            <h2>🌟 Google Gemini</h2>
+
+            <div class="input-group">
+                <label for="gemini-key">API Klíč:</label>
+                <input type="password" id="gemini-key" placeholder="Zadejte Gemini API klíč">
+                <small style="color: #666; display: block; margin-top: 5px;">
+                    Získat klíč: <a href="https://aistudio.google.com/apikey" target="_blank">https://aistudio.google.com/apikey</a>
+                </small>
+            </div>
+
+            <div class="input-group">
+                <label for="gemini-prompt">Test Prompt:</label>
+                <textarea id="gemini-prompt" rows="3" placeholder="Zadejte test prompt">Napiš krátkou vtipnou větu</textarea>
+            </div>
+
+            <button class="btn" onclick="testGemini()">
+                <span>🧪</span>Testovat Gemini API
+            </button>
+
+            <div class="result-box" id="gemini-result"></div>
+        </div>
+
+        <!-- Anthropic Claude -->
+        <div class="provider-section">
+            <h2>🤖 Anthropic Claude</h2>
+
+            <div class="input-group">
+                <label for="claude-key">API Klíč:</label>
+                <input type="password" id="claude-key" placeholder="Zadejte Claude API klíč">
+                <small style="color: #666; display: block; margin-top: 5px;">
+                    Získat klíč: <a href="https://console.anthropic.com/" target="_blank">https://console.anthropic.com/</a>
+                </small>
+            </div>
+
+            <div class="input-group">
+                <label for="claude-prompt">Test Prompt:</label>
+                <textarea id="claude-prompt" rows="3" placeholder="Zadejte test prompt">Napiš krátkou vtipnou větu</textarea>
+            </div>
+
+            <button class="btn" onclick="testClaude()">
+                <span>🧪</span>Testovat Claude API
+            </button>
+
+            <div class="result-box" id="claude-result"></div>
+        </div>
+
+        <!-- OpenAI -->
+        <div class="provider-section">
+            <h2>⚡ OpenAI GPT-4</h2>
+
+            <div class="input-group">
+                <label for="openai-key">API Klíč:</label>
+                <input type="password" id="openai-key" placeholder="Zadejte OpenAI API klíč">
+                <small style="color: #666; display: block; margin-top: 5px;">
+                    Získat klíč: <a href="https://platform.openai.com/api-keys" target="_blank">https://platform.openai.com/api-keys</a>
+                </small>
+            </div>
+
+            <div class="input-group">
+                <label for="openai-prompt">Test Prompt:</label>
+                <textarea id="openai-prompt" rows="3" placeholder="Zadejte test prompt">Napiš krátkou vtipnou větu</textarea>
+            </div>
+
+            <button class="btn" onclick="testOpenAI()">
+                <span>🧪</span>Testovat OpenAI API
+            </button>
+
+            <div class="result-box" id="openai-result"></div>
+        </div>
+
+        <!-- Quick Tests -->
+        <div class="provider-section">
+            <h2>⚡ Rychlé testy</h2>
+            <div class="quick-tests">
+                <div class="test-card" onclick="runQuickTest('connection')">
+                    <h3>🌐 Test připojení</h3>
+                    <p>Ověřit dostupnost API endpointů</p>
+                </div>
+                <div class="test-card" onclick="runQuickTest('latency')">
+                    <h3>⏱️ Test latence</h3>
+                    <p>Změřit dobu odpovědi API</p>
+                </div>
+                <div class="test-card" onclick="runQuickTest('html')">
+                    <h3>📝 Test HTML generování</h3>
+                    <p>Otestovat generování HTML kódu</p>
+                </div>
+                <div class="test-card" onclick="runQuickTest('all')">
+                    <h3>✅ Testovat vše</h3>
+                    <p>Spustit všechny testy najednou</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="tips">
+            <h3>💡 Tipy pro testování</h3>
+            <ul>
+                <li>API klíče jsou uloženy pouze v paměti prohlížeče během testování</li>
+                <li>Zkontrolujte konzoli (F12) pro detailní logy</li>
+                <li>CORS chyby jsou normální - některá API vyžadují server-side volání</li>
+                <li>Gemini API má nejlepší CORS podporu pro client-side volání</li>
+                <li>Rate limity: Gemini (60/min), Claude (50/min), OpenAI (3000/min)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let stats = {
+            total: 0,
+            successful: 0,
+            failed: 0
+        };
+
+        function updateStats() {
+            document.getElementById('total-tests').textContent = stats.total;
+            document.getElementById('successful-tests').textContent = stats.successful;
+            document.getElementById('failed-tests').textContent = stats.failed;
+        }
+
+        function showResult(provider, type, message, content = null) {
+            const resultBox = document.getElementById(`${provider}-result`);
+            resultBox.className = `result-box ${type}`;
+            resultBox.style.display = 'block';
+
+            let icon = '';
+            if (type === 'success') icon = '✅';
+            else if (type === 'error') icon = '❌';
+            else if (type === 'loading') icon = '<div class="spinner"></div>';
+
+            resultBox.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    ${icon}
+                    <strong>${message}</strong>
+                </div>
+                ${content ? `<div class="result-content">${escapeHtml(content)}</div>` : ''}
+            `;
+
+            if (type === 'success') {
+                stats.successful++;
+                stats.total++;
+            } else if (type === 'error') {
+                stats.failed++;
+                stats.total++;
+            }
+
+            updateStats();
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        async function testGemini() {
+            const apiKey = document.getElementById('gemini-key').value.trim();
+            const prompt = document.getElementById('gemini-prompt').value.trim();
+
+            if (!apiKey) {
+                showResult('gemini', 'error', 'Chyba: Zadejte API klíč');
+                return;
+            }
+
+            if (!prompt) {
+                showResult('gemini', 'error', 'Chyba: Zadejte test prompt');
+                return;
+            }
+
+            showResult('gemini', 'loading', 'Testuji Gemini API...');
+
+            try {
+                const start = performance.now();
+
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${apiKey}`;
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{ text: prompt }]
+                        }]
+                    })
+                });
+
+                const duration = Math.round(performance.now() - start);
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error?.message || 'Unknown error');
+                }
+
+                const data = await response.json();
+                const result = data.candidates[0].content.parts[0].text;
+
+                showResult('gemini', 'success', `✅ Gemini API funguje! (${duration}ms)`, result);
+
+            } catch (error) {
+                console.error('Gemini Error:', error);
+                showResult('gemini', 'error', 'Chyba: ' + error.message, error.stack);
+            }
+        }
+
+        async function testClaude() {
+            const apiKey = document.getElementById('claude-key').value.trim();
+            const prompt = document.getElementById('claude-prompt').value.trim();
+
+            if (!apiKey) {
+                showResult('claude', 'error', 'Chyba: Zadejte API klíč');
+                return;
+            }
+
+            if (!prompt) {
+                showResult('claude', 'error', 'Chyba: Zadejte test prompt');
+                return;
+            }
+
+            showResult('claude', 'loading', 'Testuji Claude API...');
+
+            try {
+                const start = performance.now();
+
+                const url = 'https://api.anthropic.com/v1/messages';
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': apiKey,
+                        'anthropic-version': '2023-06-01'
+                    },
+                    body: JSON.stringify({
+                        model: 'claude-sonnet-4-20250514',
+                        max_tokens: 1024,
+                        messages: [{
+                            role: 'user',
+                            content: prompt
+                        }]
+                    })
+                });
+
+                const duration = Math.round(performance.now() - start);
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error?.message || 'Unknown error');
+                }
+
+                const data = await response.json();
+                const result = data.content[0].text;
+
+                showResult('claude', 'success', `✅ Claude API funguje! (${duration}ms)`, result);
+
+            } catch (error) {
+                console.error('Claude Error:', error);
+                showResult('claude', 'error', 'Chyba: ' + error.message, error.stack);
+            }
+        }
+
+        async function testOpenAI() {
+            const apiKey = document.getElementById('openai-key').value.trim();
+            const prompt = document.getElementById('openai-prompt').value.trim();
+
+            if (!apiKey) {
+                showResult('openai', 'error', 'Chyba: Zadejte API klíč');
+                return;
+            }
+
+            if (!prompt) {
+                showResult('openai', 'error', 'Chyba: Zadejte test prompt');
+                return;
+            }
+
+            showResult('openai', 'loading', 'Testuji OpenAI API...');
+
+            try {
+                const start = performance.now();
+
+                const url = 'https://api.openai.com/v1/chat/completions';
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: 'gpt-4',
+                        messages: [{
+                            role: 'user',
+                            content: prompt
+                        }]
+                    })
+                });
+
+                const duration = Math.round(performance.now() - start);
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error?.message || 'Unknown error');
+                }
+
+                const data = await response.json();
+                const result = data.choices[0].message.content;
+
+                showResult('openai', 'success', `✅ OpenAI API funguje! (${duration}ms)`, result);
+
+            } catch (error) {
+                console.error('OpenAI Error:', error);
+                showResult('openai', 'error', 'Chyba: ' + error.message, error.stack);
+            }
+        }
+
+        async function runQuickTest(type) {
+            console.log('Running quick test:', type);
+
+            if (type === 'connection') {
+                alert('Test připojení - zkontrolujte konzoli (F12) pro detaily');
+                console.log('Testing API endpoints...');
+
+                // Test Gemini endpoint
+                try {
+                    const geminiTest = await fetch('https://generativelanguage.googleapis.com/v1beta/models', {
+                        method: 'GET'
+                    });
+                    console.log('✅ Gemini endpoint dostupný:', geminiTest.status);
+                } catch (e) {
+                    console.error('❌ Gemini endpoint nedostupný:', e);
+                }
+            } else if (type === 'latency') {
+                alert('Test latence - použijte hlavní testy pro měření latence');
+            } else if (type === 'html') {
+                alert('Test HTML generování - použijte GeminiOS pro plné testování');
+            } else if (type === 'all') {
+                alert('Spusťte všechny testy pomocí tlačítek výše');
+            }
+        }
+
+        // Initialize
+        console.log('🔌 GeminiOS API Tester initialized');
+        updateStats();
+    </script>
+</body>
+</html>
