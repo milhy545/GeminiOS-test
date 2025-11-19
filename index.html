@@ -3,38 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeminiOS - AI Generated Lite OS</title>
+    <title>ClaudeOS - Constitutional AI Operating System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Welcome Screen / API Setup -->
+    <!-- Welcome Screen -->
     <div id="welcome-screen" class="welcome-screen">
         <div class="welcome-content">
-            <h1>🤖 GeminiOS</h1>
-            <p class="subtitle">AI-Generated Lite Operating System</p>
-            <p class="description">Zadejte API klíč a nechte AI generovat váš operační systém!</p>
+            <div class="claude-logo">
+                <div class="logo-circle">
+                    <svg viewBox="0 0 100 100" class="logo-svg">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#D97D54" stroke-width="3"/>
+                        <text x="50" y="65" text-anchor="middle" font-size="48" fill="#D97D54" font-family="monospace">C</text>
+                    </svg>
+                </div>
+            </div>
+
+            <h1>ClaudeOS</h1>
+            <p class="subtitle">Constitutional AI Operating System</p>
+            <p class="tagline">Helpful • Harmless • Honest</p>
+
+            <div class="principles-preview">
+                <div class="principle-badge">🛡️ Safety First</div>
+                <div class="principle-badge">🧠 Thoughtful AI</div>
+                <div class="principle-badge">🔍 Transparent</div>
+            </div>
 
             <div class="api-setup">
+                <p class="setup-title">Nastavte si AI poskytovatele</p>
+
+                <div class="api-option claude-recommended">
+                    <label>
+                        <input type="radio" name="ai-provider" value="claude" checked>
+                        <span class="provider-label">
+                            <strong>Anthropic Claude</strong>
+                            <small>Claude Sonnet 4 (Doporučeno)</small>
+                            <span class="recommended-badge">✨ Doporučeno</span>
+                        </span>
+                    </label>
+                    <input type="text" id="claude-key" class="api-input" placeholder="Zadejte Claude API klíč">
+                    <small class="api-help">Získat klíč: <a href="https://console.anthropic.com/" target="_blank">console.anthropic.com</a></small>
+                </div>
+
                 <div class="api-option">
                     <label>
-                        <input type="radio" name="ai-provider" value="gemini" checked>
+                        <input type="radio" name="ai-provider" value="gemini">
                         <span class="provider-label">
                             <strong>Google Gemini</strong>
                             <small>Gemini 2.0 Flash</small>
                         </span>
                     </label>
                     <input type="text" id="gemini-key" class="api-input" placeholder="Zadejte Gemini API klíč">
-                </div>
-
-                <div class="api-option">
-                    <label>
-                        <input type="radio" name="ai-provider" value="claude">
-                        <span class="provider-label">
-                            <strong>Anthropic Claude</strong>
-                            <small>Claude Sonnet</small>
-                        </span>
-                    </label>
-                    <input type="text" id="claude-key" class="api-input" placeholder="Zadejte Claude API klíč">
                 </div>
 
                 <div class="api-option">
@@ -49,8 +68,40 @@
                 </div>
             </div>
 
-            <button id="start-os" class="start-button">Spustit OS</button>
-            <p class="hint">💡 API klíče jsou uloženy pouze ve vašem prohlížeči</p>
+            <button id="start-os" class="start-button">
+                <span>Spustit ClaudeOS</span>
+                <span class="btn-icon">→</span>
+            </button>
+
+            <div class="safety-notice">
+                🔒 API klíče jsou uloženy pouze lokálně ve vašem prohlížeči
+            </div>
+
+            <div class="principles-full">
+                <h3>Principy Constitutional AI</h3>
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <div class="principle-icon">🛡️</div>
+                        <h4>Safety First</h4>
+                        <p>Bezpečnost a ochrana dat na prvním místě</p>
+                    </div>
+                    <div class="principle-card">
+                        <div class="principle-icon">🤝</div>
+                        <h4>Helpful</h4>
+                        <p>AI jako užitečný asistent, ne hrozba</p>
+                    </div>
+                    <div class="principle-card">
+                        <div class="principle-icon">❤️</div>
+                        <h4>Harmless</h4>
+                        <p>Etické chování a respekt k uživateli</p>
+                    </div>
+                    <div class="principle-card">
+                        <div class="principle-icon">💎</div>
+                        <h4>Honest</h4>
+                        <p>Transparentnost a pravdivost odpovědí</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -61,21 +112,29 @@
 
         <!-- Desktop Icons -->
         <div class="desktop-icons">
-            <div class="desktop-icon" data-app="ai-launcher">
-                <div class="icon">🚀</div>
-                <div class="icon-label">AI Launcher</div>
+            <div class="desktop-icon" data-app="thinking-space">
+                <div class="icon">🧠</div>
+                <div class="icon-label">Thinking Space</div>
+            </div>
+            <div class="desktop-icon" data-app="ethical-check">
+                <div class="icon">✅</div>
+                <div class="icon-label">Ethical Check</div>
+            </div>
+            <div class="desktop-icon" data-app="ai-creator">
+                <div class="icon">🎨</div>
+                <div class="icon-label">AI Creator</div>
+            </div>
+            <div class="desktop-icon" data-app="safe-terminal">
+                <div class="icon">💻</div>
+                <div class="icon-label">Safe Terminal</div>
+            </div>
+            <div class="desktop-icon" data-app="principles">
+                <div class="icon">📜</div>
+                <div class="icon-label">Constitution</div>
             </div>
             <div class="desktop-icon" data-app="settings">
                 <div class="icon">⚙️</div>
                 <div class="icon-label">Nastavení</div>
-            </div>
-            <div class="desktop-icon" data-app="terminal">
-                <div class="icon">💻</div>
-                <div class="icon-label">AI Terminal</div>
-            </div>
-            <div class="desktop-icon" data-app="browser">
-                <div class="icon">🌐</div>
-                <div class="icon-label">AI Browser</div>
             </div>
         </div>
 
@@ -85,14 +144,18 @@
         <!-- Taskbar -->
         <div class="taskbar">
             <div class="start-menu-btn">
-                <span class="os-logo">🤖</span>
-                <span>GeminiOS</span>
+                <div class="claude-icon">C</div>
+                <span>ClaudeOS</span>
             </div>
             <div class="taskbar-apps" id="taskbar-apps"></div>
             <div class="system-tray">
+                <div class="principle-indicator" title="Constitutional AI Active">
+                    <span class="status-dot active"></span>
+                    <span>Constitutional AI</span>
+                </div>
                 <div class="tray-item" id="ai-status">
                     <span class="status-indicator active"></span>
-                    <span id="ai-provider-name">AI Ready</span>
+                    <span id="ai-provider-name">Claude</span>
                 </div>
                 <div class="tray-item clock" id="clock">00:00</div>
             </div>
@@ -101,25 +164,96 @@
         <!-- Start Menu -->
         <div class="start-menu hidden" id="start-menu">
             <div class="start-menu-header">
-                <h3>🤖 GeminiOS</h3>
-                <p>AI-Powered OS</p>
+                <div class="claude-logo-small">C</div>
+                <div>
+                    <h3>ClaudeOS</h3>
+                    <p>Constitutional AI OS</p>
+                </div>
             </div>
+
             <div class="start-menu-search">
-                <input type="text" id="ai-prompt" placeholder="Řekněte AI, co chcete vytvořit..." />
-                <button id="generate-app">Generovat</button>
+                <input type="text" id="ai-prompt" placeholder="Co chcete vytvořit? (AI vygeneruje bezpečně a eticky)" />
+                <button id="generate-app">
+                    <span>✨</span>
+                    <span>Vytvořit</span>
+                </button>
             </div>
+
+            <div class="constitutional-notice">
+                🛡️ Všechny AI odpovědi jsou filtrovány přes Constitutional AI principy
+            </div>
+
             <div class="start-menu-apps">
                 <div class="menu-section">
-                    <h4>Výchozí aplikace</h4>
-                    <div class="menu-item" data-app="ai-launcher">🚀 AI Launcher</div>
-                    <div class="menu-item" data-app="settings">⚙️ Nastavení</div>
-                    <div class="menu-item" data-app="terminal">💻 AI Terminal</div>
-                    <div class="menu-item" data-app="browser">🌐 AI Browser</div>
+                    <h4>🎯 Hlavní aplikace</h4>
+                    <div class="menu-item" data-app="thinking-space">
+                        <span class="menu-icon">🧠</span>
+                        <div>
+                            <div class="menu-title">Thinking Space</div>
+                            <div class="menu-desc">Vizualizace AI myšlení</div>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-app="ethical-check">
+                        <span class="menu-icon">✅</span>
+                        <div>
+                            <div class="menu-title">Ethical Check</div>
+                            <div class="menu-desc">Kontrola etičnosti obsahu</div>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-app="ai-creator">
+                        <span class="menu-icon">🎨</span>
+                        <div>
+                            <div class="menu-title">AI Creator</div>
+                            <div class="menu-desc">Bezpečné vytváření aplikací</div>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-app="safe-terminal">
+                        <span class="menu-icon">💻</span>
+                        <div>
+                            <div class="menu-title">Safe Terminal</div>
+                            <div class="menu-desc">Bezpečný AI chat</div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="menu-section">
-                    <h4>AI Generované aplikace</h4>
-                    <div id="generated-apps-list"></div>
+                    <h4>📜 Systém</h4>
+                    <div class="menu-item" data-app="principles">
+                        <span class="menu-icon">📜</span>
+                        <div>
+                            <div class="menu-title">Constitution</div>
+                            <div class="menu-desc">Zobrazit principy AI</div>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-app="settings">
+                        <span class="menu-icon">⚙️</span>
+                        <div>
+                            <div class="menu-title">Nastavení</div>
+                            <div class="menu-desc">Konfigurace systému</div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="menu-section">
+                    <h4>🤖 AI Vytvořené</h4>
+                    <div id="generated-apps-list">
+                        <div class="empty-state">Zatím žádné aplikace</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thinking Overlay -->
+    <div id="thinking-overlay" class="thinking-overlay hidden">
+        <div class="thinking-content">
+            <div class="thinking-header">
+                <span class="thinking-icon">🧠</span>
+                <span>Claude přemýšlí...</span>
+            </div>
+            <div class="thinking-text" id="thinking-text"></div>
+            <div class="thinking-progress">
+                <div class="thinking-progress-bar"></div>
             </div>
         </div>
     </div>
@@ -127,8 +261,12 @@
     <!-- Loading Overlay -->
     <div id="loading-overlay" class="loading-overlay hidden">
         <div class="loading-content">
-            <div class="spinner"></div>
-            <p id="loading-text">AI generuje...</p>
+            <div class="claude-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-letter">C</div>
+            </div>
+            <p id="loading-text">ClaudeOS se načítá...</p>
+            <p class="loading-subtext">Helpful • Harmless • Honest</p>
         </div>
     </div>
 
