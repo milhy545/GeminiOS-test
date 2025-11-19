@@ -1026,3 +1026,99 @@ body {
     font-size: 0.85rem;
     font-weight: 600;
 }
+
+/* Voice Controls - Speech & TTS */
+.voice-button,
+.speaker-button {
+    padding: 8px 12px;
+    background: rgba(217, 125, 84, 0.2);
+    border: 2px solid var(--anthropic-orange);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.voice-button:hover,
+.speaker-button:hover {
+    background: rgba(217, 125, 84, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(217, 125, 84, 0.4);
+}
+
+.voice-button.listening {
+    background: var(--anthropic-orange);
+    animation: pulse-voice 1.5s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(217, 125, 84, 0.8);
+}
+
+@keyframes pulse-voice {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(217, 125, 84, 0.8);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(217, 125, 84, 1);
+    }
+}
+
+.voice-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.voice-info {
+    padding: 8px 12px;
+    background: rgba(217, 125, 84, 0.1);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #666;
+    border-left: 3px solid var(--anthropic-orange);
+}
+
+/* Voice indicator in taskbar */
+.voice-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(217, 125, 84, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.voice-indicator:hover {
+    background: rgba(217, 125, 84, 0.4);
+}
+
+.voice-indicator.active {
+    background: var(--anthropic-orange);
+    animation: pulse-voice 1.5s ease-in-out infinite;
+}
+
+.voice-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #888;
+}
+
+.voice-status-dot.active {
+    background: #ff4444;
+    box-shadow: 0 0 10px #ff4444;
+}
+
+.voice-status-dot.speaking {
+    background: #44ff44;
+    box-shadow: 0 0 10px #44ff44;
+}
